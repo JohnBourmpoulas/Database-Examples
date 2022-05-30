@@ -83,4 +83,4 @@ INSERT INTO `product` VALUES ('5', 'gala', '1.40');
 INSERT INTO `product` VALUES ('6', 'cornFlakes', '2.10');
 INSERT INTO `product` VALUES ('7', 'garidakia', '1.60');
 INSERT INTO `product` VALUES ('8', 'pitsinia', '0.80');
-INSERT INTO `product` VALUES ('9', 'drakoulinia', '0.70');
+INSERT INTO `product` VALUES ('9', 'drakoulinia', '0.70'); 
