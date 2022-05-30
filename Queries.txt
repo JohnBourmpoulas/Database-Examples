@@ -1,0 +1,30 @@
+-- The following SQL Query creates a view with name 'report' 
+-- that shows all customers from Vathy City. 
+
+create VIEW report as 
+select customer.lname,
+				customer.fname,
+				customer.phone
+from customer
+where city = 'Vathy';
+
+
+-- The following SQL Query creates a view with name 'report1' 
+-- that shows the name, product title, price, quantity and the final price of each market.
+
+create view report1 as
+select customer.lname,
+				customer.fname,
+				product.product_title,
+				product.price,
+				customer_product.quantity,
+				product.price*customer_product.quantity AS final_price from customer_product
+
+left join customer 
+on customer_product.id_customer = customer.id_customer
+
+left join product 
+on customer_product.id_product = product.id_product
+order by final_price desc
+
+
