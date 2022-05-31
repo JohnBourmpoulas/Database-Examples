@@ -1,3 +1,32 @@
+-- Basics 
+
+Display all fields of customers.
+select * from customer
+
+Display the customers which age are greater than 30.
+select * from customer
+where age > 30
+
+Find the average of the age of customers.
+select avg(age) from customer
+
+We have customers from various cities in Greece.
+I find the average age of customers per city.
+
+select avg(age), city from customer
+group by city
+
+I find how many customers are older than avg (avg came out 37.8):
+select lname, fname, age from customer
+where age > 38 
+
+How to find avg automatically without needing 38.
+select lname, fname, age from customer
+where age > (select avg(age) from customer)
+
+------------------------------------------------------------------------------------------------
+
+-- More Queries.
 -- The following SQL Query creates a view with name 'report' 
 -- that shows all customers from Vathy City. 
 
@@ -8,6 +37,7 @@ select customer.lname,
 from customer
 where city = 'Vathy';
 
+------------------------------------------------------------------------------------------------
 
 -- The following SQL Query creates a view with name 'report1' 
 -- that shows the name, product title, price, quantity and the final price of each market.
@@ -27,4 +57,13 @@ left join product
 on customer_product.id_product = product.id_product
 order by final_price desc
 
+------------------------------------------------------------------------------------------------
 
+-- The following SQL Query displays the number of all purchases made by each buyer.
+
+select customer.lname, count(customer_product.id) as numberoforders from customer_product
+
+left join customer on customer_product.id_customer = customer.id_customer
+group by lname
+
+------------------------------------------------------------------------------------------------
